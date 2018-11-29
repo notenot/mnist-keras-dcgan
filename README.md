@@ -32,7 +32,7 @@ Both networks are trying to optimize a different and opposing objective function
 
 ![img](https://skymind.ai/images/wiki/GANs.png)
 
-## Tips in Training a Generative Adversarial Network
+## Tips in training a Generative Adversarial Network
 
 1. When you train the discriminator, hold the generator values constant; and when you train the generator, hold the discriminator constant. Each should train against a static adversary. 
 
@@ -40,8 +40,15 @@ Both networks are trying to optimize a different and opposing objective function
 
 3. Each side of the GAN can overpower the other. If the discriminator is too good, it will return values so close to 0 or 1 that the generator will struggle to read the gradient. If the generator is too good, it will persistently exploit weaknesses in the discriminator that lead to false negatives. This may be mitigated by the networks’ respective learning rates.
 
-Source: [skymind.ai](https://skymind.ai/wiki/generative-adversarial-network-gan) 
+## Possible problems
 
-MNIST: [yann.lecun.com](http://yann.lecun.com/exdb/mnist/) 
+1. **Problem:** Generated images look like noise. **Solution:** Use dropout on both Discriminator and Generator. Low dropout values (0.3 to 0.6) generate more realistic images.
 
-Keras: [keras.io](https://keras.io/) 
+2. **Problem:** Discriminator loss converges rapidly to zero thus preventing the Generator from learning. **Solution**: Do not pre-train the Discriminator. Instead make its learning rate bigger than the Adversarial model learning rate. Use a different training noise sample for the Generator.
+
+3. **Problem:** Generator images still look like noise. **Solution:** Check if the activation, batch normalization and dropout are applied in the correct sequence.
+
+4. **Problem:** Figuring out the correct training/model parameters. **Solution:** Start with some known working values from published papers and codes and adjust one parameter at a time. Before training for 2000 or more steps, observe the effect of parameter value adjustment at about 500 or 1000 steps.
+---
+
+Sources: [skymind.ai](https://skymind.ai/wiki/generative-adversarial-network-gan), [towardsdatascience.com](https://towardsdatascience.com/gan-by-example-using-keras-on-tensorflow-backend-1a6d515a60d0?gi=9c5db36e5ddb) 
