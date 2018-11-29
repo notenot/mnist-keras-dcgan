@@ -1,6 +1,8 @@
-# Generative Adversarial Network for MNIST using Keras
+# Deep Convolutional Generative Adversarial Network for MNIST using Keras
 
-Generative adversarial networks are a class of artificial intelligence algorithms used in unsupervised machine learning, implemented by a system of two neural networks contesting with each other.
+Generative Adversarial Networks are a class of artificial intelligence algorithms used in unsupervised machine learning, implemented by a system of two neural networks contesting with each other.
+
+Deep Convolutional GAN (DCGAN) is one of the models that demonstrated how to build a practical GAN that is able to learn by itself how to synthesize new images.
 
 ## How Generative Adversarial Networks work
 
@@ -34,7 +36,7 @@ Both networks are trying to optimize a different and opposing objective function
 
 ## Tips in training a Generative Adversarial Network
 
-1. When you train the discriminator, hold the generator values constant; and when you train the generator, hold the discriminator constant. Each should train against a static adversary. 
+1. When you train the discriminator, hold the generator values constant; and when you train the generator, hold the discriminator constant. Each should train against a static adversary.
 
 2. Pretraining the discriminator against MNIST before you start training the generator will establish a clearer gradient.
 
@@ -51,4 +53,4 @@ Both networks are trying to optimize a different and opposing objective function
 4. **Problem:** Figuring out the correct training/model parameters. **Solution:** Start with some known working values from published papers and codes and adjust one parameter at a time. Before training for 2000 or more steps, observe the effect of parameter value adjustment at about 500 or 1000 steps.
 ---
 
-Sources: [skymind.ai](https://skymind.ai/wiki/generative-adversarial-network-gan), [towardsdatascience.com](https://towardsdatascience.com/gan-by-example-using-keras-on-tensorflow-backend-1a6d515a60d0?gi=9c5db36e5ddb) 
+Sources: [skymind.ai](https://skymind.ai/wiki/generative-adversarial-network-gan), [towardsdatascience.com](https://towardsdatascience.com/gan-by-example-using-keras-on-tensorflow-backend-1a6d515a60d0?gi=9c5db36e5ddb)
